@@ -1,0 +1,38 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center viewModel="@id('vm') @init('hci.danhgia.TDgVM')">
+				<columnlayout>
+					<columnchildren width="100%">
+						<panel>
+							<panelchildren>
+								<label value="@load(vm.name)" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<textbox id="text" rows="12"
+									width="500px" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren><label style ="color:blue" value="Đánh giá"/></panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<button label="Gửi"
+									onClick="@command('set_dg')" />
+							</panelchildren>
+						</panel>
+
+					</columnchildren>
+				</columnlayout>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

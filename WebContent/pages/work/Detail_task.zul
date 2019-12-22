@@ -1,0 +1,89 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center
+				viewModel="@id('vm') @init('hci.emp.edit.DetailTaskVm')">
+				<columnlayout>
+					<columnchildren width="40%">
+						<panel>
+							<panelchildren>
+								<label style="color:blue"
+									value="Tiêu đề" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label value="@load(vm.tieu_de)" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label style="color:blue"
+									value="Thông tin công việc" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label value="@load(vm.noi_dung)" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label style="color:red"
+									value="@load(vm.bat_dau)" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label style="color:red"
+									value="@load(vm.ket_thuc)" />
+							</panelchildren>
+						</panel>
+					</columnchildren>
+					<columnchildren>
+						<panel>
+							<panelchildren>
+							<label value="Ghi chú cho công việc" style="color:blue"/>
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<textbox id="txt" rows="12"
+									width="300px" value="@load(vm.note)" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+
+								<label value="Tiến Độ" />
+								<selectbox id="sbox"
+									model="@load(vm.map)">
+									<template name="model">
+										<label value="@load(each)" />
+									</template>
+								</selectbox>
+
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<button label="Gửi"
+									onClick="@command('bn_click')" />
+							</panelchildren>
+						</panel>
+						<panel>
+							<panelchildren>
+								<label id="mess" style="color:red"/>
+							</panelchildren>
+						</panel>
+					</columnchildren>
+				</columnlayout>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

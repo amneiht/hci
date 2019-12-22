@@ -1,0 +1,30 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center
+				viewModel="@id('vm') @init('hci.danhgia.nhanvien.DanhGiaVM')">
+				<grid mold="paging" pageSize="10"
+					model="@load(vm.map)">
+					<columns>
+						<column label="Tên lãnh Đạo" width="25%" />
+						<column label="Ngày đánh giá" width="20%" />
+						<column label="Dánh giá" />
+
+					</columns>
+					<template name="model">
+						<row>
+							<label value="@load(each.name)" />
+							<label value="@load(each.date)" />
+							<label value="@load(each.note)" />
+						</row>
+					</template>
+				</grid>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

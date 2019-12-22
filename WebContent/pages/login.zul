@@ -1,0 +1,53 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div align="center">
+
+		<window border="normal " width="400px" height="500px"
+			viewModel="@id('vm') @init('hci.emp.login.LoginVm')">
+			<div align="center" >
+				<div align="left">
+					<columnlayout>
+						<columnchildren>
+							<panel>
+								<panelchildren>
+									<label value="Đăng Nhập" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<label value="Tài khoản" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<textbox id="user" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<label value="Mật Khẩu" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<textbox id="pass" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<label id="mess" value=" " />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<button label="Gửi"
+										onClick="@command('login')" />
+								</panelchildren>
+							</panel>
+						</columnchildren>
+					</columnlayout>
+				</div>
+			</div>
+		</window>
+	</div>
+</zk>

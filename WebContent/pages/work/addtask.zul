@@ -1,0 +1,91 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<window border="none" height="100%" sizable="true"
+		style="overflow:auto">
+		<borderlayout
+			viewModel="@id('vm') @init('hci.control.AddTask')">
+			<west size="15%" maxsize="15" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center>
+				<div>
+
+					<columnlayout hflex="true">
+						<columnchildren width="40%">
+							<panel>
+								<panelchildren>
+									<label>Chọn nhân viên</label>
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<selectbox model="@load(vm.nv)"
+										id="sbox">
+										<template name="model">
+											<label value="@load(each)" />
+										</template>
+									</selectbox>
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<label value="Nhập Tiêu Đề" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<textbox id="tieude" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									Chon ngày bắt đầu
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<datebox id="start" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									Chọn ngày kết thúc
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<datebox id="end" />
+								</panelchildren>
+							</panel>
+						</columnchildren>
+						<columnchildren>
+							<panel>
+								<panelchildren>
+									<label>Nhập nội dung công việc</label>
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<textbox id="noidung" rows="15"
+										width="500px" />
+								</panelchildren>
+							</panel>
+							<panel>
+								<panelchildren>
+									<button label="click"
+										onClick="@command('add_task')" />
+								</panelchildren>
+							</panel>
+						</columnchildren>
+					</columnlayout>
+					
+					<label id="mess" style="color:red" />
+				
+				</div>
+			</center>
+			
+		</borderlayout>
+
+	</window>
+</zk>

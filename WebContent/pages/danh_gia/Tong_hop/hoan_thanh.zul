@@ -1,0 +1,25 @@
+<?page  contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center viewModel="@id('vm') @init('hci.thongke.ListVM')">
+				<grid model="@load(vm.map)">
+					<columns>
+						<column label="Tên" />
+						<column label="Số lượng thống kế" />
+					</columns>
+					<template name="model">
+						<row>
+							<label value="@load(each.name)" />
+							<label value="@load(each.sl)" />
+						</row>
+					</template>
+				</grid>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

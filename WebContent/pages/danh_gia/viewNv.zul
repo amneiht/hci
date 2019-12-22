@@ -1,0 +1,27 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center
+				viewModel="@id('vm') @init('hci.danhgia.DanhGiaVM')">
+				<grid model="@load(vm.name)" mold="paging" pageSize="8">
+					<columns>
+						<column label="Tên nhân viên" />
+						<column label="Đánh giá" />
+					</columns>
+					<template name="model">
+						<row>
+							<label value="@load(each)" />
+							<button label="Chọn"
+								onClick="@command('btn_click',id = forEachStatus.index)" />
+						</row>
+					</template>
+				</grid>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

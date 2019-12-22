@@ -1,0 +1,67 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+	<window border="none" height="100%"
+		contentStyle="max-height:800px;overflow:auto;position:relative;">
+		<borderlayout>
+			<west size="10%" minsize="100" border="none">
+				<include src="/pages/theme/menu.zul" />
+			</west>
+			<center>
+				<div
+					viewModel="@id('vm') @init('hci.emp.ViewTaskVM')">
+					<grid width="100%" model="@load(vm.map)"
+						mold="paging" pageSize="5">
+						<columns>
+							<column label="stt" width="10%" />
+							<column label="Tên Công việc" width="20%" />
+							<column label="Người giao" width="20%" />
+							<column label="Ngày Bắt đầu" width="20%" />
+							<column label="Ngày kết thúc" width="20%" />
+							<column label="Chi tiết" width="15%" />
+						</columns>
+						<template name="model">
+							<row>
+								<label
+									value="@load(forEachStatus.index+1)" />
+								<label value="@load(each.name)" />
+								<label value="@load(each.sep)" />
+								<label value="@load(each.date)" />
+								<label value="@load(each.enddate)" />
+								<button label="cự thể"
+									onClick="@command('btn_click', id=forEachStatus.index)" />
+							</row>
+						</template>
+					</grid>
+				</div>
+			</center>
+		</borderlayout>
+
+		<!--  
+			<div viewModel="@id('vm') @init('hci.emp.EmployVM')">
+			<grid width="100%" model="@load(vm.map)" mold="paging"
+			pageSize="5">
+			<columns>
+			<column label="stt" width="10%" />
+			<column label="ten cong viec" width="20%" />
+			<column label="nguoi giao" width="20%" />
+			<column label="ngay bat dau" width="20%" />
+			<column label="ngay ket thuc" width="20%" />
+			<column label="chi tiet" width="10%" />
+			</columns>
+			<template name="model">
+			<row>
+			<label value="@load(forEachStatus.index+1)" />
+			<label value="@load(each.name)" />
+			<label value="@load(each.sep)" />
+			<label value="@load(each.date)" />
+			<label value="@load(each.enddate)" />
+			<button label="Chi tiet"
+			onClick="@command('btn_click', id=forEachStatus.index)" />
+			</row>
+			</template>
+			</grid>
+			</div>
+		-->
+	</window>
+</zk>

@@ -1,0 +1,37 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?><zk>
+	<div viewModel="@id('vm') @init('hci.control.Menu')">
+		<menubar orient="vertical" autodrop="true">
+			<menu label="Xem">
+				<menupopup>
+					<menuitem label="Chưa hoàn thành"
+						onClick="@command('chua_xong')" />
+					<menuitem label="Đã thực hiện xong"
+						onClick="@command('da_xong')" />
+					<menuitem label="Chậm tiến độ"
+						onClick="@command('task_cham')" />
+				</menupopup>
+			</menu>
+			<menuitem label="Nhận xét" onClick="@command('xem_danh_gia')"/>
+			<menuitem label="Thêm task" visible="@load(vm.themtask)"
+				onClick="@command('them_task')" />
+
+			<menu label="Tổng hợp" visible="@load(vm.themtask)">
+				<menupopup>
+					<menu label="Thống kê">
+						<menupopup>
+							<menuitem label="Hoàn thành"
+								onClick="@command('tk_view' , id=1)" />
+							<menuitem label="Chưa xong"
+								onClick="@command('tk_view' , id=2)" />
+							<menuitem label="Chậm Tiến độ"
+								onClick="@command('tk_view' , id=3)" />
+						</menupopup>
+					</menu>
+					<menuitem label="Đánh giá" visible="@load(vm.themtask)"
+						onClick="@command('danh_gia')" />
+				</menupopup>
+			</menu>
+			<menuitem label="Thoát" onClick="@command('logout')" />
+		</menubar>
+	</div>
+</zk>
